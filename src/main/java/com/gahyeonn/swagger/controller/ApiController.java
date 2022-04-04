@@ -23,6 +23,7 @@ public class ApiController {
         return x+y;
     }
 
+    @ApiResponse(code = 100, message = "사용자의 나이가 10살 이하일때") //response code 내용
     @ApiOperation(value = "사용자의 이름과 나이를 입력받는 메소드") //api 설명
     @GetMapping("/user")
     public UserRes user(UserReq userReq){
