@@ -1,9 +1,8 @@
 package com.gahyeonn.swagger.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiParam;
+import com.gahyeonn.swagger.dto.UserReq;
+import com.gahyeonn.swagger.dto.UserRes;
+import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "swagger 사용 Controller")
@@ -22,5 +21,12 @@ public class ApiController {
     @GetMapping("/plus/{x}")
     public int plus(@PathVariable int x, @RequestParam int y){
         return x+y;
+    }
+
+    @ApiOperation(value = "사용자의 이름과 나이를 입력받는 메소드") //api 설명
+    @GetMapping("/user")
+    public UserRes user(UserReq userReq){
+        return new UserRes(userReq.getName(), userReq.getAge());
+
     }
 }
