@@ -30,4 +30,10 @@ public class ApiController {
         return new UserRes(userReq.getName(), userReq.getAge());
 
     }
+
+    @ApiOperation(value = "사용자 정보 입력 메소드",httpMethod = "POST")
+    @PostMapping("/user")
+    public UserRes userPost(@RequestBody UserReq req){
+        return new UserRes(req.getName(), req.getAge());
+    }
 }
