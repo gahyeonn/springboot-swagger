@@ -3,6 +3,7 @@ package com.gahyeonn.swagger.controller;
 import com.gahyeonn.swagger.dto.UserReq;
 import com.gahyeonn.swagger.dto.UserRes;
 import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "swagger 사용 Controller")
@@ -31,6 +32,7 @@ public class ApiController {
 
     }
 
+    @Operation(summary = "user 정보 Post", description = "유저 이름, 나이 입력 후 반환")
     @ApiOperation(value = "사용자 정보 입력 메소드",httpMethod = "POST")
     @PostMapping("/user")
     public UserRes userPost(@RequestBody UserReq req){
